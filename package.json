@@ -1,0 +1,27 @@
+{
+  "name": "crowd",
+  "description": "Reverse cloud computing powered by the crowd",
+  "keywords": [
+    "crowd computing",
+    "crowd",
+    "distributed",
+    "client",
+    "server",
+    "reverse cloud"
+  ],
+  "author": "Nicola Greco <n.greco@ucl.ac.uk>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicolagreco/crowd.git"
+  },
+  "main": "index.js",
+  "version": "0.1.0",
+  "license": "MIT",
+  "dependencies": {
+    "hh": ">=0.1.0",
+    "q": ">=0.9.3",
+    "async": ">=0.0.0",
+    "kickq": ">=0.0.0",
+    "underscore": ">=0.0.0"
+  }
+}
