@@ -33,6 +33,7 @@ function Crowd () {
       this.numRequests++;
     });
   }
+  return this
 }
 util.inherits(Crowd, EventEmitter);
 

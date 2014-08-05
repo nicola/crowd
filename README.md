@@ -20,7 +20,7 @@ function task (data) {
   // some calculations
   return result 
 }
-var crowd = Crowd({x:1, y:2}, task)
+var crowd = new Crowd({x:1, y:2}, task)
   .on('data', function(data) {
     // data coming in real time
   })
@@ -35,7 +35,9 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
 var port = process.env.PORT || 8080
+app.use(bodyParser())
 app.use('/task', router(crowd))
+app.listen(port)
 
 ```
 

@@ -18,10 +18,15 @@
   "version": "0.2.0",
   "license": "MIT",
   "dependencies": {
-    "hh": ">=0.1.0",
-    "q": ">=0.9.3",
     "async": ">=0.0.0",
+    "body-parser": "^1.5.2",
+    "hh": ">=0.1.0",
     "kickq": ">=0.0.0",
+    "q": ">=0.9.3",
     "underscore": ">=0.0.0"
+  },
+  "devDependencies": {
+    "crowd-express": "0.0.1",
+    "express": "^4.7.4"
   }
 }
