@@ -55,13 +55,13 @@ What happens in the worker is that the `task` function is retrieved from the `cr
 
 ## State
 
-[ ] crowd
-  [ ] crowd-express
-  [ ] crowd-websockets
-[ ] crowd-client
-  [ ] crowd-rest
-  [ ] crowd-webworker
-  [ ] crowd-webrtc
+- [ ] [crowd](https://github.com/nicola/crowd)
+  - [ ] [crowd-express](https://github.com/nicola/crowd-express)
+  - [ ] crowd-websockets
+- [ ] crowd-client
+  - [ ] crowd-rest
+  - [ ] crowd-webworker
+  - [ ] crowd-webrtc
 
 ## Other usage
 
