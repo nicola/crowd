@@ -31,11 +31,11 @@ var crowd = Crowd({x:1, y:2}, task)
     // errors on the way
   })
 
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var port = process.env.PORT || 8080;
-app.use('/task', router(crowd));
+var express = require('express')
+var app = express()
+var bodyParser = require('body-parser')
+var port = process.env.PORT || 8080
+app.use('/task', router(crowd))
 
 ```
 
