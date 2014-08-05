@@ -45,9 +45,12 @@ Crowd.prototype.toJSON = function() {
   return task
 }
 
-Crowd.prototype.handleResult = function(result) {
+Crowd.prototype.handleResult = function(result, callback) {
   this.emit('data', result)
   if (this.opts.limit >= this.numRequests) {
     this.emit('end', result)
+    callback(true, "No more tasks")
+  } else {
+    callback(null)
   }
 }
