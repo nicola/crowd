@@ -37,13 +37,13 @@ function Crowd () {
 }
 util.inherits(Crowd, EventEmitter);
 
-Crowd.prototype.toJSON = function() {
+Crowd.prototype.prepare = function() {
   var sending = {}
 
-  if (this. data) sending.data = JSON.stringify(this.data),
-  sending.task = this.task.stringify()
+  if (this.data) sending.data = JSON.stringify(this.data),
+  sending.task = this.task.toString()
 
-  return task
+  return sending
 }
 
 Crowd.prototype.handleResult = function(result, callback) {
