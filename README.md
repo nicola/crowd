@@ -46,8 +46,8 @@ var worker = require('crowd-webworker')
 var crowd = require('crowd-client')
 var rest = require('crowd-rest')
 
-client(opts)
-  .use(rest('http://127.0.0.1:1200'))
+crowd(opts)
+  .use(rest('http://127.0.0.1:1200/task'))
   .pipe(worker())
 ```
 
