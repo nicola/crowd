@@ -1,4 +1,4 @@
-var Crowd = require('../index.js')
+var Crowd = require('../../index.js')
 var router = require('crowd-express')
 
 function task (data) {
@@ -25,7 +25,9 @@ var bodyParser = require('body-parser')
 var port = process.env.PORT || 8080
 app.use(bodyParser())
 app.use('/task', router(crowd))
+app.use(express.static(__dirname + '/public'))
+
 app.get('/', function(req, res){
-  res.render('index.html')
+  res.render('./public/index.html')
 })
 app.listen(port)
