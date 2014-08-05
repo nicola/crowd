@@ -6,7 +6,7 @@
 
 ## Project goal
 
-Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors, scientists of who donate computers..
+Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).
 
 ## Usage
 Eventually one would be able to do something on these lines:
@@ -52,6 +52,16 @@ client
 ```
 
 What happens in the worker is that the `task` function is retrieved from the `crowd-client`, evaluated and executed.
+
+## State
+
+- [ ] [crowd](https://github.com/nicola/crowd)
+  - [ ] crowd-express
+  - [ ] crowd-websockets
+- [ ] crowd-client
+  - [ ] crowd-rest
+  - [ ] crowd-webworker
+  - [ ] crowd-webrtc
 
 ## Other usage
 
