@@ -4,6 +4,9 @@
 
 > *Warning*: This is a super pre-alpha software. It will only works if you are brave and patient. **Watch/Star to follow with the progress**
 
+![Distribute tasks](https://raw.githubusercontent.com/nicola/crowd/images/image.png)
+Credits: [Planking](http://thenounproject.com/term/planking/63044) by [Matt Brooks](http://thenounproject.com/Mattebrooks/)
+
 ## Project goal
 
 Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).
