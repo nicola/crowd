@@ -11,10 +11,9 @@
 
   var windowWorker = {
   	start: function(task, next) {
-      console.log("running task", task.data, task.code)
 
       var logNext = function(err, result) {
-        console.log(err, result)
+        console.log("Result found", result)
         next(err, result)
       }
   		
