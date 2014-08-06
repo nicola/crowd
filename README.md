@@ -81,3 +81,9 @@ What happens in the worker is that the `task` function is retrieved from the `cr
 ## Other usage
 
 Obviously this is not bound to javascript, to REST and to the browser. Server and clients will be available for WebSockets and WebRTC, and you will be free to implement any of the technology you want.
+
+## A bit of history
+
+About 1 year and a half ago (April 2013), [me](https://github.com/nicola), [@rmharrisom](https://github.com/rmharrisom) and [@WilliamMayor](https://github.com/WilliamMayor) met together at the [Facebook London Hackathon](https://www.facebook.com/hackathon/photos/pb.167580640987.-2207520000.1407300170./10151361980305988/?type=3&theater) and we got the 5th Prize with[CrowdTaskingJS](https://github.com/CrowdTaskingJS).
+
+The code was very messy, and a year after, inspired by a more decentralized web from my experience in [Mozilla](https://github.com/mozilla/fireplay-sublime), I decided to clean it and wrap it up into a library that everyone can use.
