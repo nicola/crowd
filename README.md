@@ -1,10 +1,11 @@
 # crowd
 
-## Crowd computing in Javascript. Distribute tasks to execute to other computers
+### Crowd computing in Javascript. Distribute tasks to execute in other computers
+
+![Distribute tasks](https://raw.githubusercontent.com/nicola/crowd/images/image.png)
 
 > *Warning*: This is a super pre-alpha software. It will only works if you are brave and patient. **Watch/Star to follow with the progress**
 
-![Distribute tasks](https://raw.githubusercontent.com/nicola/crowd/images/image.png)
 Credits: [Planking](http://thenounproject.com/term/planking/63044) by [Matt Brooks](http://thenounproject.com/Mattebrooks/)
 
 ## Project goal
