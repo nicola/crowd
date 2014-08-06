@@ -57,11 +57,11 @@ What happens in the worker is that the `task` function is retrieved from the `cr
 
 ## State
 
-- [ ] [crowd](https://github.com/nicola/crowd)
+- [x] [crowd](https://github.com/nicola/crowd)
   - [ ] [crowd-express](https://github.com/nicola/crowd-express)
   - [ ] crowd-websockets
-- [ ] [crowd-client](https://github.com/nicola/crowd-client)
-  - [ ] crowd-rest
+- [x] [crowd-client](https://github.com/nicola/crowd-client) (needs options)
+  - [x] [crowd-rest](https://github.com/nicola/crowd-rest)
   - [ ] crowd-webworker
   - [ ] crowd-webrtc
 
