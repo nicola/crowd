@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "body-parser": "^1.5.2",
     "crowd-client": "0.0.1",
     "crowd-express": "0.0.1",
     "crowd-rest": "0.0.1",

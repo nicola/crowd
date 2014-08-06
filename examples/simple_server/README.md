@@ -5,7 +5,7 @@
 Browserify the latest js scripts and start the server
 
 ```
-$ browserify public/my_crowd.js > public/bundle.js
+$ browserify examples/simple_server/public/my_crowd.js -o  examples/simple_server/public/bundle.js
 $ node server.js
 ```
 
