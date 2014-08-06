@@ -5,5 +5,13 @@
 <body>
 
 	<script type="text/javascript" src="/bundle.js"></script>
+	<script type="text/javascript">
+	var Crowd = require('crowd-client')
+	var rest = require('crowd-rest')
+
+	var crowd = new Crowd()
+	  .use(rest('http://127.0.0.1:8080/task'))
+	  .pipe(this)
+  </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 Browserify the latest js scripts and start the server
 
 ```
-$ browserify examples/simple_server/public/my_crowd.js -o  examples/simple_server/public/bundle.js
+$ browserify -r crowd-rest -r crowd-client -o  examples/simple_server/public/bundle.js
 $ node server.js
 ```
 
