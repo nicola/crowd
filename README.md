@@ -12,38 +12,42 @@ Credits: [Planking](http://thenounproject.com/term/planking/63044) by [Matt Broo
 
 Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).
 
-## How it works
-
-A server sends a Task to a client that will get the code, evaluate it and execute with the data, once done, return a Result to the server.
-
-The server library `crowdjs` (1) formats tasks before sending and (2) handles results from clients. Communication with clients is simple, even simpler if you use [crowd-express](https://github.com/nicola/crowd-express) or [crowd-websockets](https://github.com/nicola/crowd-websockets).
-
-```javascript
-// 1. Create an crowd instance
-var crowd = new Crowd(data, function(data, next) {
-  // your amazing function
-})
-
-// 2. Send through websockets or HTTP the task in json to the client
-crowd.toJSON() // {"data": String, "code": String}
-
-// 3. Get the result from the client
-crowd.handleResult(resultWeGot)
-
-// 5. Listen to all the events
-var crowd = new Crowd({x:1, y:2}, task)
-  .on('data', function(data) { /* data coming in real time */ })
-  .on('end', function(results) { /* task completed */ })
-  .on('error', function(err) { /* errors on the way */ })
-
-```
-
-
 ## Install
 
 ```
 $ npm install --save crowdjs
 ```
+
+## How it works
+
+A server sends a Task to a client that will get the code, evaluate it and execute with the data, once done, return a Result to the server.
+
+- Set up your data and function to distribute
+```javascript
+var crowd = new Crowd(data, function(data, next) {
+  next()
+})
+```
+- Listen to the distributed clients events
+```javascript
+crowd
+  .on('data', function(data) { /* data coming in real time */ })
+  .on('end', function(results) { /* task completed */ })
+  .on('error', function(err) { /* errors on the way */ })
+```
+
+Sending tasks and getting results is easy:
+
+```javascript
+// Send through HTTP or websockets the task
+crowd.toJSON() // {"data": String, "code": String}
+
+// Get the result from the client
+crowd.handleResult(resultWeGot)
+```
+
+To communicate with the client you can alternatively use [crowd-express](https://github.com/nicola/crowd-express) or [crowd-websockets](https://github.com/nicola/crowd-websockets).
+
 
 ## Example with Express
 Eventually one would be able to do something on these lines. See a [working example](https://github.com/nicola/crowd/tree/master/examples/simple_server).
