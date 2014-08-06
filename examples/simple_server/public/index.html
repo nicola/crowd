@@ -9,9 +9,24 @@
   var Crowd = require('crowd-client')
   var rest = require('crowd-rest')
 
+  var windowWorker = {
+  	start: function(task, next) {
+      console.log("running task", task.data, task.code)
+
+      var logNext = function(err, result) {
+        console.log(err, result)
+        next(err, result)
+      }
+  		
+      task.code.apply(null, [task.data, logNext])
+  	}
+  }
+
   var crowd = new Crowd()
     .use(rest('http://127.0.0.1:8080/task'))
-    .pipe(this)
+    .pipe(windowWorker)
+    .start(true)
+
   </script>
 </body>
 </html>

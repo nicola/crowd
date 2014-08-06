@@ -1,10 +1,11 @@
 var Crowd = require('../../index.js')
 var router = require('crowd-express')
 
-function task (data) {
-  // some calculations
-  return result 
+function task (data, next) {
+  console.log("data", data, "next", next)
+  next(null, data.x+data.y)
 }
+
 var crowd = new Crowd({x:1, y:2}, task)
   .on('data', function(data) {
     // data coming in real time
