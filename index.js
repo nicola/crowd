@@ -28,21 +28,21 @@ function Crowd () {
 }
 util.inherits(Crowd, EventEmitter);
 
-Crowd.prototype.prepare = function() {
-  var sending = {}
+Crowd.prototype.toJSON = function() {
+  var json = {}
 
-  if (this.data) sending.data = JSON.stringify(this.data),
-  sending.code = this.code.toString()
+  if (this.data) json.data = JSON.stringify(this.data),
+  json.code = this.code.toString()
 
-  return sending
+  return json
 }
 
 Crowd.prototype.handleResult = function(result, callback) {
   this.emit('data', result)
   if (this.opts.limit >= this.numRequests) {
     this.emit('end', result)
-    callback(true, "No more tasks")
+    if (callback) callback(true, "No more tasks")
   } else {
-    callback(null)
+    if (callback) callback(null)
   }
 }
