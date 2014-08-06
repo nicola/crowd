@@ -22,35 +22,7 @@ $ npm install --save crowdjs
 
 A server sends a Task to a client that will get the code, evaluate it and execute with the data, once done, return a Result to the server.
 
-- Set up your data and function to distribute
-```javascript
-var crowd = new Crowd(data, function(data, next) {
-  next()
-})
-```
-- Listen to the distributed clients events
-```javascript
-crowd
-  .on('data', function(data) { /* data coming in real time */ })
-  .on('end', function(results) { /* task completed */ })
-  .on('error', function(err) { /* errors on the way */ })
-```
-
-Sending tasks and getting results is easy:
-
-```javascript
-// Send through HTTP or websockets the task
-crowd.toJSON() // {"data": String, "code": String}
-
-// Get the result from the client
-crowd.handleResult(resultWeGot)
-```
-
-To communicate with the client you can alternatively use [crowd-express](https://github.com/nicola/crowd-express) or [crowd-websockets](https://github.com/nicola/crowd-websockets).
-
-
-## Example with Express
-Eventually one would be able to do something on these lines. See a [working example](https://github.com/nicola/crowd/tree/master/examples/simple_server).
+See a [working example](https://github.com/nicola/crowd/tree/master/examples/simple_server).
 
 ```javascript
 // Server
@@ -92,7 +64,15 @@ var crowd = new Crowd(opts)
   .start(opts)
 ```
 
-What happens in the worker is that the `task` function is retrieved from the `crowd-client`, evaluated and executed.
+You can avoid Express and talk with the distributed clients by sending them tasks and handling the result:
+
+```javascript
+// Send through HTTP or websockets the task
+crowd.toJSON() // {"data": String, "code": String}
+
+// Get the result from the client
+crowd.handleResult(resultWeGot)
+```
 
 ## State
 
