@@ -87,5 +87,3 @@ Obviously this is not bound to javascript, to REST and to the browser. Server an
 About 1 year and a half ago (April 2013), [me](https://github.com/nicola), [@rmharrisom](https://github.com/rmharrisom) and [@WilliamMayor](https://github.com/WilliamMayor) met together at the [Facebook London Hackathon](https://www.facebook.com/hackathon/photos/pb.167580640987.-2207520000.1407300170./10151361980305988/?type=3&theater) and we got the 5th Prize with [CrowdTaskingJS](https://github.com/CrowdTaskingJS).
 
 The code was very messy, and a year after, inspired by a more decentralized web from my experience in [Mozilla](https://github.com/mozilla/fireplay-sublime), I decided to clean it and wrap it up into a library that everyone can use.
-
-![Crowdtasking](https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t35.0-12/899461_10200675871072506_1681661333_o.jpg?oh=8b1bdeb40e0da0829a663c1aad5f0c12&oe=53E38842&__gda__=1407441362_34a137f9f31cce05ee68aec9901ec09c)
