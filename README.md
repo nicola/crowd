@@ -39,11 +39,12 @@ See a [working example](https://github.com/nicola/crowd/tree/master/examples/sim
 var Crowd = require('crowdjs')
 var router = require('crowd-express')
 
+var data = {/* data to send to clients */}
 function task (data, next) {
-  next(null, data.x+data.y)
+  // This will execute on clients 
 }
 
-var crowd = new Crowd({x:1, y:2}, task)
+var crowd = new Crowd(data, task)
   .on('data', function(data) {
     // data coming in real time
     console.log("arriving", data)
