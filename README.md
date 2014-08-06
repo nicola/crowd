@@ -12,6 +12,12 @@ Credits: [Planking](http://thenounproject.com/term/planking/63044) by [Matt Broo
 
 Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).
 
+## Install
+
+```
+$ npm install --save crowdjs
+```
+
 ## Usage
 Eventually one would be able to do something on these lines. See a [working example](https://github.com/nicola/crowd/tree/master/examples/simple_server).
 
