@@ -12,6 +12,16 @@ Credits: [Planking](http://thenounproject.com/term/planking/63044) by [Matt Broo
 
 Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).
 
+### State
+
+- [x] [crowd](https://github.com/nicola/crowd)
+  - [x] [crowd-express](https://github.com/nicola/crowd-express)
+  - [ ] crowd-websockets
+- [x] [crowd-client](https://github.com/nicola/crowd-client) (needs options)
+  - [x] [crowd-rest](https://github.com/nicola/crowd-rest)
+  - [ ] crowd-webworker
+  - [ ] crowd-webrtc
+
 ## Install
 
 ```
@@ -74,15 +84,6 @@ crowd.toJSON() // {"data": String, "code": String}
 crowd.handleResult(resultWeGot)
 ```
 
-## State
-
-- [x] [crowd](https://github.com/nicola/crowd)
-  - [x] [crowd-express](https://github.com/nicola/crowd-express)
-  - [ ] crowd-websockets
-- [x] [crowd-client](https://github.com/nicola/crowd-client) (needs options)
-  - [x] [crowd-rest](https://github.com/nicola/crowd-rest)
-  - [ ] crowd-webworker
-  - [ ] crowd-webrtc
 
 ## Other usage
 
