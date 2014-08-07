@@ -1,7 +1,6 @@
 module.exports = Crowd
 
 var EventEmitter = require('events').EventEmitter
-var util = require('util')
 
 function Crowd () {
   var args = arguments
@@ -26,7 +25,7 @@ function Crowd () {
   }
   return this
 }
-util.inherits(Crowd, EventEmitter);
+inherits(Crowd, EventEmitter);
 
 Crowd.prototype.toJSON = function() {
   var json = {}

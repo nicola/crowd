@@ -17,7 +17,9 @@
   "main": "index.js",
   "version": "0.2.0",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "inherits": "^2.0.1"
+  },
   "devDependencies": {
     "body-parser": "^1.5.2",
     "crowd-client": "0.0.1",
