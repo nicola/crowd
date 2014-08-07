@@ -1,6 +1,7 @@
 module.exports = Crowd
 
 var EventEmitter = require('events').EventEmitter
+var inherits = require('inherits')
 
 function Crowd () {
   var args = arguments
