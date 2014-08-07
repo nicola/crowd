@@ -12,32 +12,15 @@ Credits: [Planking](http://thenounproject.com/term/planking/63044) by [Matt Broo
 
 Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).
 
-## How it works
+### State
 
-A server sends a Task to a client that will get the code, evaluate it and execute with the data, once done, return a Result to the server.
-
-The server library `crowdjs` (1) formats tasks before sending and (2) handles results from clients. Communication with clients is simple, even simpler if you use [crowd-express](https://github.com/nicola/crowd-express) or [crowd-websockets](https://github.com/nicola/crowd-websockets).
-
-```javascript
-// 1. Create an crowd instance
-var crowd = new Crowd(data, function(data, next) {
-  // your amazing function
-})
-
-// 2. Send through websockets or HTTP the task in json to the client
-crowd.toJSON() // {"data": String, "code": String}
-
-// 3. Get the result from the client
-crowd.handleResult(resultWeGot)
-
-// 5. Listen to all the events
-var crowd = new Crowd({x:1, y:2}, task)
-  .on('data', function(data) { /* data coming in real time */ })
-  .on('end', function(results) { /* task completed */ })
-  .on('error', function(err) { /* errors on the way */ })
-
-```
-
+- [x] [crowd](https://github.com/nicola/crowd)
+  - [x] [crowd-express](https://github.com/nicola/crowd-express)
+  - [ ] crowd-websockets
+- [x] [crowd-client](https://github.com/nicola/crowd-client) (needs options)
+  - [x] [crowd-rest](https://github.com/nicola/crowd-rest)
+  - [ ] crowd-webworker
+  - [ ] crowd-webrtc
 
 ## Install
 
@@ -45,19 +28,23 @@ var crowd = new Crowd({x:1, y:2}, task)
 $ npm install --save crowdjs
 ```
 
-## Example with Express
-Eventually one would be able to do something on these lines. See a [working example](https://github.com/nicola/crowd/tree/master/examples/simple_server).
+## How it works
+
+A server sends a Task to a client that will get the code, evaluate it and execute with the data, once done, return a Result to the server.
+
+See a [working example](https://github.com/nicola/crowd/tree/master/examples/simple_server).
 
 ```javascript
 // Server
 var Crowd = require('crowdjs')
 var router = require('crowd-express')
 
+var data = {/* data to send to clients */}
 function task (data, next) {
-  next(null, data.x+data.y)
+  // This will execute on clients 
 }
 
-var crowd = new Crowd({x:1, y:2}, task)
+var crowd = new Crowd(data, task)
   .on('data', function(data) {
     // data coming in real time
     console.log("arriving", data)
@@ -88,17 +75,16 @@ var crowd = new Crowd(opts)
   .start(opts)
 ```
 
-What happens in the worker is that the `task` function is retrieved from the `crowd-client`, evaluated and executed.
+You can avoid Express and talk with the distributed clients by sending them tasks and handling the result:
 
-## State
+```javascript
+// Send through HTTP or websockets the task
+crowd.toJSON() // {"data": String, "code": String}
 
-- [x] [crowd](https://github.com/nicola/crowd)
-  - [x] [crowd-express](https://github.com/nicola/crowd-express)
-  - [ ] crowd-websockets
-- [x] [crowd-client](https://github.com/nicola/crowd-client) (needs options)
-  - [x] [crowd-rest](https://github.com/nicola/crowd-rest)
-  - [ ] crowd-webworker
-  - [ ] crowd-webrtc
+// Get the result from the client
+crowd.handleResult(resultWeGot)
+```
+
 
 ## Other usage
 
