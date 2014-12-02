@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Crowd by nicola</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Crowd</h1>
+        <p>Crowd computing in javascript. Distribute tasks to execute in connected browsers</p>
+
+        <p class="view"><a href="https://github.com/nicola/crowd">View the Project on GitHub <small>nicola/crowd</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/nicola/crowd/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nicola/crowd/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nicola/crowd">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="https://raw.githubusercontent.com/nicola/crowd/images/image.png" alt="Distribute tasks"></p>
+
+<blockquote>
+<p><em>Warning</em>: This is a super pre-alpha software. It will only works if you are brave and patient. <strong>Watch/Star to follow with the progress</strong></p>
+</blockquote>
+
+<p>Credits: <a href="http://thenounproject.com/term/planking/63044">Planking</a> by <a href="http://thenounproject.com/Mattebrooks/">Matt Brooks</a></p>
+
+<h2>
+<a id="project-goal" class="anchor" href="#project-goal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project goal</h2>
+
+<p>Enable a computer to distribute tasks to execute to other computers. Websites can use computing power of visitors to test performance, scientists can distributedly fold DNA, hackers can distributedly crack passwords (:/).</p>
+
+<h3>
+<a id="state" class="anchor" href="#state" aria-hidden="true"><span class="octicon octicon-link"></span></a>State</h3>
+
+<ul>
+<li>[x] <a href="https://github.com/nicola/crowd">crowd</a>
+
+<ul>
+<li>[x] <a href="https://github.com/nicola/crowd-express">crowd-express</a>
+</li>
+<li>[ ] crowd-websockets</li>
+</ul>
+</li>
+<li>[x] <a href="https://github.com/nicola/crowd-client">crowd-client</a> (needs options)
+
+<ul>
+<li>[x] <a href="https://github.com/nicola/crowd-rest">crowd-rest</a>
+</li>
+<li>[ ] crowd-webworker</li>
+<li>[ ] crowd-webrtc</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<pre><code>$ npm install --save crowdjs
+</code></pre>
+
+<h2>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h2>
+
+<p>A server sends a Task to a client that will get the code, evaluate it and execute with the data, once done, return a Result to the server.</p>
+
+<p>See a <a href="https://github.com/nicola/crowd/tree/master/examples/simple_server">working example</a>.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Server</span>
+<span class="pl-s">var</span> Crowd <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>crowdjs<span class="pl-pds">'</span></span>)
+<span class="pl-s">var</span> router <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>crowd-express<span class="pl-pds">'</span></span>)
+
+<span class="pl-s">var</span> data <span class="pl-k">=</span> {<span class="pl-c">/* data to send to clients */</span>}
+<span class="pl-st">function</span> <span class="pl-en">task</span> (<span class="pl-vpf">data</span>, <span class="pl-vpf">next</span>) {
+  <span class="pl-c">// This will execute on clients </span>
+}
+
+<span class="pl-s">var</span> crowd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Crowd</span>(data, task)
+  .on(<span class="pl-s1"><span class="pl-pds">'</span>data<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">data</span>) {
+    <span class="pl-c">// data coming in real time</span>
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-s1"><span class="pl-pds">"</span>arriving<span class="pl-pds">"</span></span>, data)
+  })
+  .on(<span class="pl-s1"><span class="pl-pds">'</span>end<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">results</span>) {
+    <span class="pl-c">// task completed</span>
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-s1"><span class="pl-pds">"</span>the end<span class="pl-pds">"</span></span>)
+  })
+  .on(<span class="pl-s1"><span class="pl-pds">'</span>error<span class="pl-pds">'</span></span>, <span class="pl-st">function</span>(<span class="pl-vpf">err</span>) {
+    <span class="pl-c">// errors on the way</span>
+    <span class="pl-en">console</span><span class="pl-s3">.log</span>(<span class="pl-s1"><span class="pl-pds">"</span>errors<span class="pl-pds">"</span></span>, err)
+  })
+
+
+app.use(<span class="pl-s1"><span class="pl-pds">'</span>/task<span class="pl-pds">'</span></span>, router(crowd))</pre></div>
+
+<p>The way it will work on the client will be:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-s">var</span> worker <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>crowd-webworker<span class="pl-pds">'</span></span>)
+<span class="pl-s">var</span> crowd <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>crowd-client<span class="pl-pds">'</span></span>)
+<span class="pl-s">var</span> rest <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>crowd-rest<span class="pl-pds">'</span></span>)
+
+<span class="pl-s">var</span> crowd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Crowd</span>(opts)
+  .use(rest(<span class="pl-s1"><span class="pl-pds">'</span>http://127.0.0.1:1200/task<span class="pl-pds">'</span></span>))
+  .pipe(worker())
+  .<span class="pl-sc">start</span>(opts)</pre></div>
+
+<p>You can avoid Express and talk with the distributed clients by sending them tasks and handling the result:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Send through HTTP or websockets the task</span>
+crowd.toJSON() <span class="pl-c">// {"data": String, "code": String}</span>
+
+<span class="pl-c">// Get the result from the client</span>
+crowd.handleResult(resultWeGot)</pre></div>
+
+<h2>
+<a id="other-usage" class="anchor" href="#other-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other usage</h2>
+
+<p>Obviously this is not bound to javascript, to REST and to the browser. Server and clients will be available for WebSockets and WebRTC, and you will be free to implement any of the technology you want.</p>
+
+<h2>
+<a id="a-bit-of-history" class="anchor" href="#a-bit-of-history" aria-hidden="true"><span class="octicon octicon-link"></span></a>A bit of history</h2>
+
+<p>About 1 year and a half ago (April 2013), <a href="https://github.com/nicola">me</a>, <a href="https://github.com/rmharrisom">@rmharrisom</a> and <a href="https://github.com/WilliamMayor">@WilliamMayor</a> met together at the <a href="https://www.facebook.com/hackathon/photos/pb.167580640987.-2207520000.1407300170./10151361980305988/?type=3&amp;theater">Facebook London Hackathon</a> and we got the 5th Prize with <a href="https://github.com/CrowdTaskingJS">CrowdTaskingJS</a>.</p>
+
+<p>The code was very messy, and a year after, inspired by a more decentralized web from my experience in <a href="https://github.com/mozilla/fireplay-sublime">Mozilla</a>, I decided to clean it and wrap it up into a library that everyone can use.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/nicola">nicola</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
